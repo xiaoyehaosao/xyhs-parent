@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.xyhs.b2c</groupId>
+    <artifactId>xyhs-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <properties>
+        <java.version>1.8</java.version>
+        <spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
+        <spring-boot-dependencies.version>2.1.4.RELEASE</spring-boot-dependencies.version>
+        <swagger2.version>2.9.2</swagger2.version>
+        <commonCore.version>1.0-SNAPSHOT</commonCore.version>
+        <tradecenter.version>0.0.1-SNAPSHOT</tradecenter.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- spring-boot 依赖 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot-dependencies.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--swagger ui-->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${swagger2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${swagger2.version}</version>
+            </dependency>
+
+            <!-- base-center 依赖 -->
+            <!--<dependency>
+                <groupId>com.xyhs.b2c</groupId>
+                <artifactId>tradecenter-common</artifactId>
+                <version>${tradecenter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xyhs.b2c</groupId>
+                <artifactId>tradecenter-export</artifactId>
+                <version>${tradecenter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xyhs.b2c</groupId>
+                <artifactId>tradecenter-dao</artifactId>
+                <version>${tradecenter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xyhs.b2c</groupId>
+                <artifactId>tradecenter-service</artifactId>
+                <version>${tradecenter.version}</version>
+            </dependency>-->
+
+
+        </dependencies>
+    </dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>com.xyhs.common</groupId>
+            <artifactId>commonCore</artifactId>
+            <version>${commonCore.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>${project.name}</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <target>${java.version}</target>
+                    <source>${java.version}</source>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <addMavenDescriptor>true</addMavenDescriptor>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>
