@@ -10,7 +10,7 @@
         <java.version>1.8</java.version>
         <spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
         <spring-boot-dependencies.version>2.1.4.RELEASE</spring-boot-dependencies.version>
-        <swagger2.version>2.9.2</swagger2.version>
+        <swagger2.version>2.10.0</swagger2.version>
         <commonCore.version>1.0-SNAPSHOT</commonCore.version>
         <tradecenter.version>0.0.1-SNAPSHOT</tradecenter.version>
     </properties>
